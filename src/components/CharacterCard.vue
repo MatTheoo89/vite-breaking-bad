@@ -40,7 +40,10 @@ export default {
         }
     }
     .avatar{
-        max-height: 350px;
+        height: 250px;
+        img{
+            aspect-ratio: 1 / 1;
+        }
     }
     .card-title{
         font-weight: 600;

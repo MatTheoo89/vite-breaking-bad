@@ -23,7 +23,7 @@ export default {
                 <h4>Found {{store.characterListData.length}} characters</h4>
             </div>
             <div class="container-fluid d-flex flex-wrap justify-content-evenly">
-                <CharacterCard class="col-3 my-3"
+                <CharacterCard class="col-3 my-4"
                 v-for="character in store.characterListData"
                 :key="character.id"
                 :character="character"/>
