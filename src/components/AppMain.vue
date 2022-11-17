@@ -31,7 +31,7 @@ export default {
         </div>
     </main>
 
-    <main>
+    <main v-else>
         <div class="loader d-flex flex-column justify-content-center align-items-center">
             <h1>Caricamento in corso...</h1>
             <AppLoader />
