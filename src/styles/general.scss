@@ -2,3 +2,15 @@
 
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/@fontsource/poppins/index.css';
+@import '../../node_modules/@fontsource/poppins/latin-900.css';
+
+body{
+    font-family: $main-font;
+    min-height: 100vh;
+    background: $primary-color;
+    background: linear-gradient(0deg, $primary-color 0%, rgba(9,218,150,1) 100%); 
+}
+
+img{
+    max-width: 100%;
+}

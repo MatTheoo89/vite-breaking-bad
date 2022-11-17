@@ -1,15 +1,46 @@
 <script>
-  export default {
-    name: 'App'
+
+import axios from 'axios';
+import { store } from './data/store'
+
+
+import AppHeader from './components/AppHeader.vue'
+import AppMain from './components/AppMain.vue'
+import AppFooter from './components/AppFooter.vue'
+
+export default {
+  name: 'App',
+  components: { AppHeader, AppMain, AppFooter },
+  data(){
+    return{
+      store
+    },
+    methods: {
+      getCharacters(){
+        axios.get(store.apiUrl)
+        .then( result => {
+          store.characterList = result.data
+        })
+        .catch( error => {
+          console.log(error)
+        })
+      }
+    },
+    mounted(){
+      this.getCharacters();
+    }
+  }
   }
 </script>
 
 <template>
-  prova
+  <AppHeader />
+  <AppMain />
+  <AppFooter />
 </template>
 
 <style lang="scss">
 
-  @use './styles/general.scss'
+  @use './styles/general';
 
 </style>
