@@ -5,10 +5,11 @@
 </script>
 
 <template>
-  
+  prova
 </template>
 
+<style lang="scss">
 
-<style>
+  @use './styles/general.scss'
 
 </style>
