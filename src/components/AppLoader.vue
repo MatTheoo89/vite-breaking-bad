@@ -1,0 +1,42 @@
+<template>
+    <div class="pulse"></div>
+</template>
+
+<script>
+export default {
+    name:'AppLoader'
+}
+</script>
+
+<style lang="scss">
+
+    @use '../styles/partials/variables.scss' as *;
+
+.pulse {
+    width: 56px;
+    height: 24.6px;
+    position: relative;
+}
+
+.pulse:before,
+.pulse:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: lighten($primary-color, 30%);
+    box-shadow: 0 0 0 28px lighten($primary-color, 30%);
+    clip-path: polygon(-28px -11.2px,10% -6.7px,20% 0,calc(50% - 9px) 0,calc(50% - 5.6px) -11.2px,calc(50% - 4.5px) -9px,calc(50% + 4.5px) -9px,calc(50% + 5.6px) -11.2px,calc(50% + 9px) 0,80% 0,90% -6.7px,calc(100% + 28px) -11.2px,100% 80%,calc(100% + 5.6px) calc(100% + 5.6px),60% 100%,50% calc(100% + 9px),40% 100%,-5.6px calc(100% + 5.6px),0 80%);
+}
+
+.pulse:after {
+    animation: pulse-ciavg0md 1s infinite;
+    transform: perspective(168px) translateZ(0px);
+    }
+
+@keyframes pulse-ciavg0md {
+    to {
+        transform: perspective(168px) translateZ(56px);
+        opacity: 0;
+    }
+}
+</style>

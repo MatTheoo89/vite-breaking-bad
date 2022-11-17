@@ -1,11 +1,12 @@
 <script>
 
 import { store } from '../data/store';
-import CharacterCard from './CharacterCard.vue'
+import CharacterCard from './CharacterCard.vue';
+import AppLoader from './AppLoader.vue';
 
 export default {
     name: 'AppMain',
-    components: { CharacterCard, },
+    components: { CharacterCard, AppLoader },
     data(){
         return{
             store
@@ -15,11 +16,11 @@ export default {
 </script>
 
 <template>
-    <main>
+    <main v-if="store.isLoading">
         <div class="container">
             <div class="row"></div>
             <div class="col my-set">
-                <h4>Found XX characters</h4>
+                <h4>Found {{store.characterListData.length}} characters</h4>
             </div>
             <div class="container-fluid d-flex flex-wrap justify-content-evenly">
                 <CharacterCard class="col-3 my-3"
@@ -27,7 +28,13 @@ export default {
                 :key="character.id"
                 :character="character"/>
             </div>
-            
+        </div>
+    </main>
+
+    <main>
+        <div class="loader d-flex flex-column justify-content-center align-items-center">
+            <h1>Caricamento in corso...</h1>
+            <AppLoader />
         </div>
     </main>
 </template>
@@ -52,6 +59,14 @@ export default {
                 margin-left: 20px;
                 margin-bottom: 0;
             }
+        }
+    }
+    .loader{
+        width: 100%;
+        height: 100vh;
+        h1{
+            color: #fff;
+            margin-bottom: 50px;
         }
     }
 

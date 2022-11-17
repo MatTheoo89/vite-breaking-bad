@@ -13,9 +13,11 @@ export default {
   components: { AppHeader, AppMain, AppFooter },
   methods:{
     getCharacters(){
+      store.isLoading = false;
       axios.get(store.apiUrl)
       .then( result => {
         store.characterListData = result.data
+        store.isLoading = true;
       })
       .catch( error => {
         console.log(error);
