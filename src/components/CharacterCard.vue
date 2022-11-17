@@ -13,7 +13,7 @@ export default {
             <img :src="character.img" class="card-img-top" :alt="character.name">
         </div>
         <div class="card-body">
-            <h5 class="card-title text-center">{{character.name}}</h5>
+            <h4 class="card-title text-center">{{character.name}}</h4>
             <p class="card-text text-center">{{character.category}}</p>
             <p class="card-text text-center">{{character.status}}</p>
         </div>
@@ -43,7 +43,7 @@ export default {
         max-height: 350px;
     }
     .card-title{
-        font-size: .9rem;
+        font-weight: 600;
         color: $primary-color;
         margin-bottom: 20px;
     }
