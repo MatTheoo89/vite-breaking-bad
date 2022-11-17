@@ -15,7 +15,7 @@ export default {
     getCharacters(){
       axios.get(store.apiUrl)
       .then( result => {
-        store.characterList = result.data
+        store.characterListData = result.data
       })
       .catch( error => {
         console.log(error);

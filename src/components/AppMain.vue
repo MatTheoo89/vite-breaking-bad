@@ -1,11 +1,19 @@
 <script>
+
+import { store } from '../data/store';
+
 export default {
-    name: 'AppMain'
+    name: 'AppMain',
+    data(){
+        return{
+            store
+        }
+    }
 }
 </script>
 
 <template>
-    MAIN
+    
 </template>
 
 <style lang="scss" scoped>
