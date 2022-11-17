@@ -11,24 +11,19 @@ import AppFooter from './components/AppFooter.vue'
 export default {
   name: 'App',
   components: { AppHeader, AppMain, AppFooter },
-  data(){
-    return{
-      store
-    },
-    methods: {
-      getCharacters(){
-        axios.get(store.apiUrl)
-        .then( result => {
-          store.characterList = result.data
-        })
-        .catch( error => {
-          console.log(error)
-        })
-      }
-    },
-    mounted(){
-      this.getCharacters();
+  methods:{
+    getCharacters(){
+      axios.get(store.apiUrl)
+      .then( result => {
+        store.characterList = result.data
+      })
+      .catch( error => {
+        console.log(error);
+      })
     }
+  },
+  mounted(){
+    this.getCharacters();
   }
   }
 </script>
