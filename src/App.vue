@@ -16,10 +16,20 @@ export default {
     getCharacters(){
       store.isLoading = false;
       axios.get(store.apiUrl, {params:{
-        category: store.SelectedToFilter,
-        status: store.statusToSelected}})
+        category: store.SelectedToFilter}})
       .then( result => {
-        store.characterListData = result.data
+        /* 
+        [
+          {char_id...., status},
+
+        ]
+        */
+      if(store.statusToSelected.length) {
+                store.characterListData = result.data.filter((item) => item.status.toLowerCase() === store.statusToSelected.toLowerCase())
+
+      } else {
+        store.characterListData = result.data;
+      }
         store.isLoading = true;
       })
       .catch( error => {
