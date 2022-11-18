@@ -15,7 +15,9 @@ export default {
   methods:{
     getCharacters(){
       store.isLoading = false;
-      axios.get(store.apiUrl, {params:{category: store.SelectedToFilter}})
+      axios.get(store.apiUrl, {params:{
+        category: store.SelectedToFilter,
+        status: store.statusToSelected}})
       .then( result => {
         store.characterListData = result.data
         store.isLoading = true;
