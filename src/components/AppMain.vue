@@ -3,10 +3,11 @@
 import { store } from '../data/store';
 import CharacterCard from './CharacterCard.vue';
 import AppLoader from './AppLoader.vue';
+import AppSelect from './AppSelect.vue';
 
 export default {
     name: 'AppMain',
-    components: { CharacterCard, AppLoader },
+    components: { CharacterCard, AppLoader,AppSelect },
     data(){
         return{
             store
@@ -16,17 +17,21 @@ export default {
 </script>
 
 <template>
+
+
     <main v-if="store.isLoading">
         <div class="container">
-            <div class="row"></div>
-            <div class="col my-set">
-                <h4>Found {{store.characterListData.length}} characters</h4>
-            </div>
-            <div class="container-fluid d-flex flex-wrap justify-content-evenly">
-                <CharacterCard class="col-3 my-4"
-                v-for="character in store.characterListData"
-                :key="character.id"
-                :character="character"/>
+
+            <div class="row">
+                <div class="col">
+                    <h4 class="my-set">Found {{store.characterListData.length}} characters</h4>
+                </div>
+                <div class="container-fluid d-flex flex-wrap justify-content-evenly">
+                    <CharacterCard class="col-3 my-4"
+                    v-for="character in store.characterListData"
+                    :key="character.id"
+                    :character="character"/>
+                </div>
             </div>
         </div>
     </main>
@@ -44,19 +49,23 @@ export default {
     @use '../styles/partials/variables.scss' as *;
 
     .container{
-        padding: 30px;
+        padding: 10px;
         border-radius: 30px;
         background-color: rgba(0, 0, 0, .35);
         min-height: 700px;
-        .col.my-set{
+        .col{
             margin-bottom: 30px;
             padding: 15px 0;
             border-radius: 5px;
-            background-color: #333;
+            
             h4{
+                margin-bottom: 30px;
+                padding: 15px 0;
+                padding-left: 20px;
+                border-radius: 5px;
+                background-color: #333;
                 color: #fff;
                 font-weight: 500;
-                margin-left: 20px;
                 margin-bottom: 0;
             }
         }
